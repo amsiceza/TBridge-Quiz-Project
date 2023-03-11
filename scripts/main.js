@@ -47,21 +47,27 @@ function startGame() {
 startButton.addEventListener("click", startGame);
 
 // Funcion para mostrar las questiones y crear un boton porfunction showQuestion(question) 
+    // --> Cambia el contenido de contenedor de "question"
 function showQuestion(question) {
     
     questionElement.innerText = question.question;
     
-    question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    
-    if (answer.correct) {
-        button.dataset.correct = true;
-    }
 
-    answerButtonsElement.appendChild(button);
+    const answerQuiz = datosQuiz.map(({ correct_answer, incorrect_answers }) => ({ correct_answer, incorrect_answers }));
+    console.log(answerQuiz)
+
     
+    const buttonTrue = document.createElement("button");
+    buttonTrue.innerText = answerQuiz[currentQuestionIndex].correct_answer;
+    answerButtonsElement.appendChild(buttonTrue);
+
+   
+    answerQuiz[currentQuestionIndex].incorrect_answers.forEach(element => {
+        const buttonFalse = document.createElement("button");
+        buttonFalse.innerText = element;
+        answerButtonsElement.appendChild(buttonFalse);
     });
+    
 }
 
 
