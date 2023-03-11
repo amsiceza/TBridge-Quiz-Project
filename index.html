@@ -22,20 +22,28 @@
       </nav>
 
      <!-- Card 1 - Del primer test -->
-    <div class="cardAll">
+    <div id="quizSport" class="cardAll">
         <div class="card border-primary mb-3" style="max-width: 20rem;">
             <div class="card-header">¡ Welcome to the quiz !</div>
             <div class="card-body">
             <h4 class="card-title">Quiz about sports</h4>
             <p class="card-text">Hail and well met, friends! Welcome to this exciting sport quiz! This is a challenge for true fans of sport, where thou shalt put thy knowledge to the test in various sporting disciplines.</p>
 
-            <button type="button" class="btn btn-primary">Start the Quiz</button>
+            <button id="start-btn" type="button" class="btn btn-primary">Start the Quiz</button>
 
             </div>
         </div>
     </div>
 
-    
+    <!-- Contenedor de botones par respuestas -->
+    <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <div id="answer-buttons"></div>
+    </div>
+        
+    <div class="controls">
+        <button id="next-btn" class="hide">Next</button>
+    </div>
 
 
 

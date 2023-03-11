@@ -1,11 +1,17 @@
+/* Clase para desaparecer elementos escondidos
+   -----> Se le añade a los elementos desde el DOM de Java Script */
+.hide{
+    display: none !important;
+}
+
+
 .bg-body-tertiary {
     border-bottom: 1px solid #0d6efd;
 }
 footer{
-    position: fixed;
-    bottom: 0px !important;
     width: 100%;
     border-top: 1px solid #0d6efd;
+    background-color:#f8f9fa;
 }
 .cardAll{
     display: flex;
