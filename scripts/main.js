@@ -34,43 +34,44 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
         console.log(datosQuiz)
     
 // Variable sobre la que se va a iterar cuando avancen las preguntas
-let currentQuestionIndex; 
+        let currentQuestionIndex; 
 
 // Funcion para empezar el quiz (Se aplica sobre el boton Start the Quiz)
-function startGame() {
-    cardQuiz.classList.add("hide");
-    currentQuestionIndex = 0;
-    questionContainerElement.classList.remove("hide");
-    setNextQuestion()
-}
+        function startGame() {
+            cardQuiz.classList.add("hide");
+            currentQuestionIndex = 0;
+            questionContainerElement.classList.remove("hide");
+            setNextQuestion()
+        }
 
-startButton.addEventListener("click", startGame);
+        startButton.addEventListener("click", startGame);
 
 // Funcion para mostrar las questiones y crear un boton porfunction showQuestion(question) 
     // --> Cambia el contenido de contenedor de "question"
-function showQuestion(question) {
-    
-    questionElement.innerText = question.question;
-    
+    // --> Sacamos un array nuevo con las respuestas correctas e incorrectas.
+    // --> Pintar las respuestas tanto correctas como incorrectas
 
-    const answerQuiz = datosQuiz.map(({ correct_answer, incorrect_answers }) => ({ correct_answer, incorrect_answers }));
-    console.log(answerQuiz)
+        function showQuestion(question) {
+            
+            questionElement.innerText = question.question;
 
-    
-    const buttonTrue = document.createElement("button");
-    buttonTrue.innerText = answerQuiz[currentQuestionIndex].correct_answer;
-    answerButtonsElement.appendChild(buttonTrue);
+            const answerQuiz = datosQuiz.map(({ correct_answer, incorrect_answers }) => ({ correct_answer, incorrect_answers }));
+            console.log(answerQuiz)
 
-   
-    answerQuiz[currentQuestionIndex].incorrect_answers.forEach(element => {
-        const buttonFalse = document.createElement("button");
-        buttonFalse.innerText = element;
-        answerButtonsElement.appendChild(buttonFalse);
-    });
-    
-}
+            
+            const buttonTrue = document.createElement("button");
+            buttonTrue.innerText = answerQuiz[currentQuestionIndex].correct_answer;
+            answerButtonsElement.appendChild(buttonTrue);
+
+        
+            answerQuiz[currentQuestionIndex].incorrect_answers.forEach(element => {
+                const buttonFalse = document.createElement("button");
+                buttonFalse.innerText = element;
+                answerButtonsElement.appendChild(buttonFalse);
+            });   
+        }
 
 
-function setNextQuestion() {
-    showQuestion(datosQuiz[currentQuestionIndex]);
-}
+        function setNextQuestion() {
+            showQuestion(datosQuiz[currentQuestionIndex]);
+        }
