@@ -67,9 +67,30 @@ hr{
 #answer-buttons button:hover{
     border: 1px solid #0d6efd;
     background-color: #0d6efd;
-    color: white;
-    
-} 
+    color: white;   
+}
+
+.correcta{
+    background-color: #0dfd1d64;
+    border: 1px solid #0dfd1d !important;
+}
+.correcta:hover{
+    background-color: #0dfd1d64 !important;
+    border: 1px solid #0dfd1d !important;
+    color: black !important;
+}
+.erronea{
+    background-color: #fd0d0d70;
+    border: 1px solid #fd0d0d !important;
+}
+.erronea:hover{
+    background-color: #fd0d0d70 !important;
+    border: 1px solid #fd0d0d !important;
+    color: black !important;
+}
+.erronea:disabled, .correcta:disabled{
+    color: black;
+}
 
 
 
