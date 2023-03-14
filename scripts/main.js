@@ -1,14 +1,11 @@
 // Llamada a los elementos del DOM para dar funcionalidades.
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
+const restartButton = document.getElementById("restart-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const cardQuiz = document.getElementById("quizSport")
-
-
-console.log(startButton)
-
 
 
 // Enlace de la API almacenada en una variable
@@ -43,11 +40,12 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
     // --> Nos conduce a la pregunta del array posicion [0]
         function startGame() {
             cardQuiz.classList.add("hide");
+            restartButton.classList.add("hide")
             currentQuestionIndex = 0;
             questionContainerElement.classList.remove("hide");
             setNextQuestion()
         }
-
+        restartButton.addEventListener("click", startGame);
         startButton.addEventListener("click", startGame);
 
 // Funcion para mostrar las questiones y crear un boton porfunction showQuestion(question) 
@@ -99,19 +97,20 @@ function checkAnswer(button) {
         
         }else{
             button.classList.add("correcta")
-            button.disabled = true
+            button.disabled = true   
         }
 }
+
 
 function selectAnswer() {
     Array.from(answerButtonsElement.children).forEach((button) => {
         checkAnswer(button);
     });
-        if (questions.length > currentQuestionIndex + 1) {
+        if (datosQuiz.length > currentQuestionIndex + 1) {
             nextButton.classList.remove("hide");
         } else {
-            startButton.innerText = "Restart";
-            startButton.classList.remove("hide");
+            restartButton.classList.remove("hide");
+            console.log(correct_answer)
         }      
 }
 
