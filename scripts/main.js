@@ -34,6 +34,9 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
 // Variable sobre la que se va a iterar cuando avancen las preguntas
     // --> Marcara el posicionameniento de las preguntas array.
         let currentQuestionIndex; 
+        let countCorrect = 0;
+
+        
 
 // Funcion para empezar el quiz 
     // --> Se aplica sobre el boton Start the Quiz
@@ -42,6 +45,7 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
             cardQuiz.classList.add("hide");
             restartButton.classList.add("hide")
             currentQuestionIndex = 0;
+            countCorrect = 0;
             questionContainerElement.classList.remove("hide");
             setNextQuestion()
         }
@@ -68,8 +72,13 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
             button.id = "answerButton"
             button.innerText = answer;
             answerButtonsElement.appendChild(button);
-
-            button.addEventListener("click", selectAnswer);
+            button.addEventListener("click",()=>{
+                selectAnswer()
+                if(button.dataset.correct){
+                    countCorrect++
+                }    
+                console.log(countCorrect);       
+            } );
 
             });
 
@@ -97,22 +106,26 @@ function checkAnswer(button) {
         
         }else{
             button.classList.add("correcta")
-            button.disabled = true   
+            button.disabled = true 
+            button.dataset.correct = true
         }
 }
 
-
 function selectAnswer() {
+    
     Array.from(answerButtonsElement.children).forEach((button) => {
         checkAnswer(button);
-    });
+    }); 
+
         if (datosQuiz.length > currentQuestionIndex + 1) {
             nextButton.classList.remove("hide");
         } else {
             restartButton.classList.remove("hide");
-            console.log(correct_answer)
-        }      
+        } 
 }
+
+
+
 
 
 nextButton.addEventListener("click", () => {
