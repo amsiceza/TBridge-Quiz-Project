@@ -63,6 +63,7 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
             const answers = [...question.incorrect_answers, question.correct_answer]
             // Mezcla las respuestas utilizando sort() y Math.random()
             const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
+            
             // Pinta los botones de respuesta en orden aleatorio
             shuffledAnswers.forEach(answer => {
             const button = document.createElement("button");
@@ -70,15 +71,17 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
             button.innerText = answer;
             answerButtonsElement.appendChild(button);
 
-            // Ejecuta la funcion de check answer
-            button.addEventListener("click",()=> {
-            checkAnswer(button)})
+            button.addEventListener("click", selectAnswer);
+
             });
+
         }
 
-        function setNextQuestion() {
-            showQuestion(datosQuiz[currentQuestionIndex]);
-        }
+    function setNextQuestion() {
+        resetState();
+        showQuestion(datosQuiz[currentQuestionIndex]);
+    }
+
 
 // Variables para guardar en diferentes arrays las respuestas correctas e incorrectas
         let answerFalse = []
@@ -89,20 +92,41 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
 function checkAnswer(button) {
     answerFalse = datosQuiz[currentQuestionIndex].incorrect_answers
     answerTrue = datosQuiz[currentQuestionIndex].correct_answer
+
         if(answerFalse.includes(button.innerText)){
             button.classList.add("erronea")
             button.disabled = true
-            console.log(button)
+        
         }else{
             button.classList.add("correcta")
             button.disabled = true
-            console.log(button)
-
-            
         }
 }
 
-    
+function selectAnswer() {
+    Array.from(answerButtonsElement.children).forEach((button) => {
+        checkAnswer(button);
+    });
+        if (questions.length > currentQuestionIndex + 1) {
+            nextButton.classList.remove("hide");
+        } else {
+            startButton.innerText = "Restart";
+            startButton.classList.remove("hide");
+        }      
+}
+
+
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+});
+
+function resetState() {
+    nextButton.classList.add("hide");
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+    }
+}
 
 
     
