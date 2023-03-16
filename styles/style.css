@@ -3,15 +3,14 @@
 .hide{
     display: none !important;
 }
-
-
 .bg-body-tertiary {
     border-bottom: 1px solid #0d6efd;
 }
-footer{
-    width: 100%;
-    border-top: 1px solid #0d6efd;
-    background-color:#f8f9fa;
+.main-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 .cardAll{
     display: flex;
@@ -23,13 +22,10 @@ footer{
     text-align: center;
     font-size: 14px;
 }
-
-
 #question{
   text-align: center; 
   margin-top: 4rem;
 }
-
 hr{
     width: 700px;
     margin-right: auto;
@@ -40,7 +36,6 @@ hr{
     margin-top: 3rem;
     margin-bottom: 1.5rem;
 }
-
 #answer-buttons{
     margin-left: auto;
     margin-right: auto;
@@ -51,7 +46,6 @@ hr{
     flex-wrap: wrap;
     margin-bottom: 4rem;  
 }
-
 #answer-buttons button{
     width: 250px;
     height: 150px;
@@ -60,7 +54,6 @@ hr{
     border: 1px solid #0d6efd;
     transition: background-color .2s;
     transition: color .2s;
-
     transition-timing-function: linear;
     transition-property: all;
 } 
@@ -69,7 +62,6 @@ hr{
     background-color: #0d6efd;
     color: white;   
 }
-
 .correcta{
     background-color: #0dfd1d64;
     border: 1px solid #0dfd1d !important;
@@ -91,14 +83,77 @@ hr{
 .erronea:disabled, .correcta:disabled{
     color: black;
 }
-#next-btn, #restart-btn{
+#next-btn{
     margin-left: auto;
     margin-right: auto;
     justify-content: center !important;
     display: flex;
     margin-bottom: 1.5rem;
 }
-
+#card-score{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+#circle-card{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+#hr-score-card{
+    width: 200px;
+    border: 4px solid white;    margin-right: 0;
+    margin-left: 0;
+    border-color: white !important;
+    opacity: 1;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+#your-score{
+    font-size: 60px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346);  
+}
+#global-score{
+    font-size: 60px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346); 
+}
+.display-body{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+.card-title{
+    margin-bottom: 2rem;
+}
+#botones-scores{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+.controles{
+    background-color: white;
+    color: #0d6efd;
+}
+.card-text-results{
+    text-align: justify;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.card-title-results{
+    text-align: center;
+    margin-top: 1rem;
+}
 
 
 

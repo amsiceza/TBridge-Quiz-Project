@@ -6,6 +6,20 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const cardQuiz = document.getElementById("quizSport")
+const scoreCard = document.getElementById("card-score")
+const homeButton = document.getElementById("home-btn")
+const resultButton = document.getElementById("results-btn")
+const yourScore = document.getElementById("your-score")
+const cardTitle = document.getElementById("card-title")
+const textScore = document.getElementById("text-score")
+const ctx = document.getElementById("myChart")
+const average = document.getElementById("average-title")
+const chartDiv = document.getElementById("chart-div")
+
+
+
+
+
 
 
 // Enlace de la API almacenada en una variable
@@ -35,6 +49,7 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
     // --> Marcara el posicionameniento de las preguntas array.
         let currentQuestionIndex; 
         let countCorrect = 0;
+        let scoreArray = JSON.parse(localStorage.getItem("scores")) || [];
 
         
 
@@ -43,8 +58,9 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
     // --> Nos conduce a la pregunta del array posicion [0]
         function startGame() {
             cardQuiz.classList.add("hide");
-            restartButton.classList.add("hide")
+            scoreCard.classList.add("hide");
             currentQuestionIndex = 0;
+            countCorrect = 0
             questionContainerElement.classList.remove("hide");
             setNextQuestion()
         }
@@ -68,7 +84,7 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
             shuffledAnswers.forEach(answer => {
                 const button = document.createElement("button");
                 button.id = "answerButton"
-                button.innerText = answer;
+                button.innerHTML = answer;
                 answerButtonsElement.appendChild(button);
 
             // Funcion  que se le añade al boton de cada una de las respuestas
@@ -141,12 +157,110 @@ const API_URL = "https://opentdb.com/api.php?amount=10&category=21&difficulty=ea
                 if (datosQuiz.length > currentQuestionIndex + 1) {
                     nextButton.classList.remove("hide");
                 } else {
-                    restartButton.classList.remove("hide");
+                    printScore()
+                    saveScore()
+                    scoreCard.classList.remove("hide");
+                    questionContainerElement.classList.add("hide");
                 } 
         }
 
+        
+
+        function printScore(){
+            yourScore.innerHTML = `${countCorrect}`
+
+            if(countCorrect <= 2){
+                cardTitle.innerText = "Nice one troll"
+                textScore.innerText = "Nice try, but you still need to improve your general knowledge skills! Keep going and keep learning to improve your score next time."
+            }
+            else if(countCorrect > 2 && countCorrect < 5){
+                cardTitle.innerText = "Almost there loser"
+                textScore.innerText = "You're almost there! Keep working hard and learning more to improve your results in the future."
+            }
+            else if(countCorrect >= 5 && countCorrect < 7){
+                cardTitle.innerText = "You are a kiss-ass"
+                textScore.innerText = "You are a kiss-ass! Your general knowledge skills are impressive, keep it up!"
+                
+            }
+            else if(countCorrect >= 7 && countCorrect <= 10){
+                cardTitle.innerText = "You are el BICHO"
+                textScore.innerText = "You are el BICHO! Your general knowledge skills are exceptional and truly impressive. Keep going and show off your skills to everyone! SSSSSSSUUUUUU!"
+                
+            }
 
 
+        }
+
+        function saveScore() {
+            scoreArray.push(countCorrect);
+            localStorage.setItem("scores", JSON.stringify(scoreArray));
+          }
+
+        function goHome(){
+            cardQuiz.classList.remove("hide");
+            scoreCard.classList.add("hide");
+        }
+
+        homeButton.addEventListener("click", goHome)
+
+
+
+
+
+        function showStats() {
+            if(scoreArray.length == 0) {
+              average.innerHTML = "No game history";
+            }else {
+              average.innerHTML = `You've played ${scoreArray.length} time(s). Your average is:  ${Number(scoreArray.reduce((acc, val) => (acc + val)) / scoreArray.length).toFixed(0)}/10`;
+              chartDiv.innerHTML = `<canvas id="chart"></canvas>`;
+              createChart();
+            }
+            }
+        
+
+        showStats()
+
+        function createChart () {
+            let xValues = scoreArray.map((game,index) => "Try" + (index + 1));
+            let yValues = scoreArray.map(game => game);
+            const barColors = "#0d6efd";
+            
+            new Chart("chart", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues,
+                  barPercentage: 0.5,
+                  
+                }]
+              },
+              options: {
+                legend: {display: false},
+                title: {
+                  display: true,
+                },
+                
+                scales: {
+                  yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                      min: 0,
+                      max: 10
+                    }
+                  }]
+                }
+              }
+            });
+            }
+
+       
+            
+        
+          
 
 
 
