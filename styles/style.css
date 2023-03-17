@@ -3,28 +3,15 @@
 .hide{
     display: none !important;
 }
+
+/* --------------------------
+-----------------------------
+Estilos elementos especificos
+-----------------------------
+-------------------------- */
+
 .bg-body-tertiary {
     border-bottom: 1px solid #0d6efd;
-}
-.main-container{
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-.cardAll{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-.container p{
-    padding-top: 1.2rem;
-    text-align: center;
-    font-size: 14px;
-}
-#question{
-  text-align: center; 
-  margin-top: 4rem;
 }
 hr{
     width: 700px;
@@ -36,59 +23,42 @@ hr{
     margin-top: 3rem;
     margin-bottom: 1.5rem;
 }
-#answer-buttons{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 700px;
+#your-score{
+    font-size: 60px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346);  
+}
+#global-score{
+    font-size: 60px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346); 
+}
+.display-body{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* -----------------
+--------------------
+Estilos de las cards
+--------------------
+----------------- */
+
+.main-container{
     display: flex;
     justify-content: center;
-    gap: 2rem;
     flex-wrap: wrap;
-    margin-bottom: 4rem;  
 }
-#answer-buttons button{
-    width: 250px;
-    height: 150px;
-    font-size: 20px;
-    border-radius: 20px;
-    border: 1px solid #0d6efd;
-    transition: background-color .2s;
-    transition: color .2s;
-    transition-timing-function: linear;
-    transition-property: all;
-} 
-#answer-buttons button:hover{
-    border: 1px solid #0d6efd;
-    background-color: #0d6efd;
-    color: white;   
-}
-.correcta{
-    background-color: #0dfd1d64;
-    border: 1px solid #0dfd1d !important;
-}
-.correcta:hover{
-    background-color: #0dfd1d64 !important;
-    border: 1px solid #0dfd1d !important;
-    color: black !important;
-}
-.erronea{
-    background-color: #fd0d0d70;
-    border: 1px solid #fd0d0d !important;
-}
-.erronea:hover{
-    background-color: #fd0d0d70 !important;
-    border: 1px solid #fd0d0d !important;
-    color: black !important;
-}
-.erronea:disabled, .correcta:disabled{
-    color: black;
-}
-#next-btn{
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center !important;
+.cardAll{
     display: flex;
-    margin-bottom: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.container p{
+    padding-top: 1.2rem;
+    text-align: center;
+    font-size: 14px;
 }
 #card-score{
     margin-left: auto;
@@ -116,23 +86,103 @@ hr{
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;
 }
-#your-score{
-    font-size: 60px;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346);  
-}
-#global-score{
-    font-size: 60px;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.346); 
-}
-.display-body{
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
+.card{
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 .card-title{
     margin-bottom: 2rem;
+}
+.card-text-results{
+    text-align: justify;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.card-title-results{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ----------------------------------
+-------------------------------------
+Estilos de las preguntas y respuestas
+-------------------------------------
+---------------------------------- */
+
+#question{
+  text-align: center; 
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.correcta{
+    background-color: #0dfd1d64;
+    border: 1px solid #0dfd1d !important;
+}
+.correcta:hover{
+    background-color: #0dfd1d64 !important;
+    border: 1px solid #0dfd1d !important;
+    color: black !important;
+}
+.erronea{
+    background-color: #fd0d0d70;
+    border: 1px solid #fd0d0d !important;
+}
+.erronea:hover{
+    background-color: #fd0d0d70 !important;
+    border: 1px solid #fd0d0d !important;
+    color: black !important;
+}
+.erronea:disabled, .correcta:disabled{
+    color: black;
+}
+
+/* -------------------
+----------------------
+Estilos de los botones
+----------------------
+------------------- */
+
+#answer-buttons{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;  
+}
+#answer-buttons button{
+    width: 250px;
+    height: 150px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid #0d6efd;
+    transition: background-color .2s;
+    transition: color .2s;
+    transition-timing-function: linear;
+    transition-property: all;
+} 
+#answer-buttons button:hover{
+    border: 1px solid #0d6efd;
+    background-color: #0d6efd;
+    color: white;   
+}
+#next-btn{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center !important;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+#clear-btn{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 #botones-scores{
     display: flex;
@@ -145,15 +195,17 @@ hr{
     background-color: white;
     color: #0d6efd;
 }
-.card-text-results{
-    text-align: justify;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-}
-.card-title-results{
-    text-align: center;
-    margin-top: 1rem;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

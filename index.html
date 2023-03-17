@@ -19,52 +19,43 @@
           </a>
         </div>
       </nav>
-
-     <!-- Card 1 - Del primer test -->
-     <div class="main-container">
-    <div id="quizSport" class="cardAll">
-        <div class="card border-primary mb-3" style="max-width: 20rem; max-height: 20rem;">
-            <div class="card-header">Welcome to the quiz !</div>
-            <div class="card-body">
-            <h4 class="card-title">Quiz about sports</h4>
-
-            <p class="card-text">Hail and well met, friends! Welcome to this exciting sport quiz! This is a challenge for true fans of sport, where thou shalt put thy knowledge to the test in various sporting disciplines.</p>
-
-            <button id="start-btn" type="button" class="btn btn-primary">Start the Quiz</button>
-
-            </div>
-        </div>
-    </div>
-
-    <div id="average" class="cardAll">
-        <div class="card border-primary mb-3" style="max-width: 30rem;">
-            <div class="card-header">Welcome to the quiz !</div>
-            <div class="card-body">
-            <h4 id="average-title" class="card-title "></h4>
-
-            <div id="chart-div" style="max-width: 30rem;">
-            
-            </div>
-            <p id="average" class="card-text">Hello! It seems that there are no registered results at this time. But don't worry, the good news is that you can take a quiz to make the results you're looking for appear.</p>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-
     
+    <!-- Contenedor general contenido -->
+    <div class="main-container">
 
+        <!-- Card 1 - Del primer test -->
+        
+        <div id="quizSport" class="cardAll">
+            <div class="card border-primary mb-3" style="max-width: 20rem; max-height: 20rem;">
+                <div class="card-header">Welcome to the quiz !</div>
+                <div class="card-body">
+                    <h4 class="card-title">Quiz about sports</h4>
+                    <p class="card-text">Hail and well met, friends! Welcome to this exciting sport quiz! This is a challenge for true fans of sport, where thou shalt put thy knowledge to the test in various sporting disciplines.</p>
+                    <button id="start-btn" type="button" class="btn btn-primary">Start the Quiz</button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Contenedor de scores y average  -->
+        <div id="average-container" class="cardAll">
+            <div class="card border-primary mb-3" style="max-width: 30rem;">
+                <div class="card-header">What have been your results ?</div>
+                <div class="card-body">
+                    <h4 id="average-title" class="card-title "></h4>
+                    <div id="chart-div" style="max-width: 30rem;"> </div>
+                    <p id="average-text" class="card-text">Hello! It seems that there are no registered results at this time. But don't worry, the good news is that you can take a quiz to make the results you're looking for appear.</p>
+                    <button id="clear-btn" class="btn btn-primary controles">Clear games</button>
+                </div>
+            </div>
+        </div>
 
+    </div>
 
     <!-- Contenedor de botones par respuestas -->
     <div id="question-container" class="hide">
         <h2 id="question">Question</h2>
         <hr>
         <button id="next-btn" class="hide btn btn-primary">Next Question</button>
-        
-
         <div id="answer-buttons"></div>
     </div>
 
@@ -72,7 +63,7 @@
     <div id="card-score" class="card border-primary mb-3 hide" style="max-width: 30rem;">
         <div class="card-header">Your results</div>
         <div class="card-body">
-          <h4 id="card-title" class="card-title card-title-results">Primary card title</h4>
+            <h4 id="card-title" class="card-title card-title-results">Primary card title</h4>
             <div class="display-body">
                 <div id="circle-card">
                     <h5 id="your-score">10</h5>
@@ -82,19 +73,19 @@
                 <p id="text-score" class="card-text card-text-results ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
         </div>
+
         <div id="botones-scores">
             <button id="restart-btn" class="btn btn-primary controles">Restart quiz</button>
             <button id="home-btn" class="btn btn-primary controles">Back home</button>
         </div>
+
     </div>
-
     
 
-
+    <!-- Scripts de la web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="./scripts/main.js"></script>
     
-   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
-<script src="./scripts/main.js"></script>
 </body>
 </html>
