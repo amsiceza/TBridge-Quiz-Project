@@ -1,8 +1,7 @@
 
 ![Img](./media/sportQuiz.jpg)
-# Proyecto BridgeData con Bootstrap 🃏
 
-# Quiz de deportes
+# Quiz de deportes🃏
 Este es un juego de preguntas y respuestas de deportes, en el que el usuario debe responder 10 preguntas de múltiple elección y recibir una puntuación al final del juego.
 
 ## Descripción del juego 📋
