@@ -190,7 +190,7 @@ function clearStorage() {
         chartDiv.classList.add("hide")
         showStats()
     } else {        
-        clearBtn.classList.add("clicked");  //Adds a class to button to show it's been clicked once to get confirmation from user
+        clearBtn.classList.add("clicked");  
         clearBtn.innerHTML = "Are you agree?";
     }
 }
