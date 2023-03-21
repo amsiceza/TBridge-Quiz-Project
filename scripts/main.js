@@ -163,7 +163,7 @@ function showStats() {
         averageText.classList.remove("hide")
         clearBtn.classList.add("hide")
     }else {
-        average.innerHTML = `You played ${scoreArray.length} time/s. Your average is: ${Number(scoreArray.reduce((a, v) => (a + v)) / scoreArray.length).toFixed(0)}/10`;
+        average.innerHTML = `You played <span class="azul">${scoreArray.length}</span> time/s. Your average: <span class="azul">${Number(scoreArray.reduce((a, v) => (a + v)) / scoreArray.length).toFixed(0)}</span>/10`
         chartDiv.innerHTML = `<canvas id="chart"></canvas>`;
         createChart();
         averageText.classList.add("hide")
